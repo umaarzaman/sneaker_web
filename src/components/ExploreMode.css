@@ -1,0 +1,172 @@
+.explore-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  z-index: 0;
+  transition: background-color 1s ease;
+}
+
+.background-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(8rem, 25vw, 20rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.04);
+  z-index: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -2px;
+}
+
+.shoe-display {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none; /* Let clicks pass through to UI */
+}
+
+.main-shoe-image {
+  width: 70vw;
+  max-width: 1000px;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 40px rgba(0,0,0,0.6));
+}
+
+.explore-content {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  pointer-events: none; /* Only allow pointer events on panel */
+}
+
+.info-panel {
+  pointer-events: auto;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* Additional glassmorphism to ensure text is readable over the shoe */
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-panel .text-giant {
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-left: -5px; /* Offset for dramatic font */
+}
+
+.price-tag {
+  font-size: 2.5rem;
+  font-weight: 300;
+  font-family: 'Outfit', sans-serif;
+  margin: 8px 0;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.add-to-cart {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.wishlist-btn.active {
+  color: var(--danger);
+  border-color: rgba(255, 59, 48, 0.5);
+  background: rgba(255, 59, 48, 0.1);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.scroll-progress {
+  display: flex;
+  gap: 12px;
+}
+
+.progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.progress-dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.5);
+}
+
+.progress-dot.active {
+  background: white;
+  transform: scale(1.5);
+}
+
+@media (max-width: 768px) {
+  .explore-content {
+    align-items: flex-end;
+    padding-bottom: 120px;
+  }
+  
+  .info-panel {
+    padding: 24px;
+    width: 100%;
+  }
+
+  .main-shoe-image {
+    width: 90vw;
+    transform: translateY(-10vh);
+  }
+}

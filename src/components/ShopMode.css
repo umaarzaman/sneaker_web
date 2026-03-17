@@ -1,0 +1,43 @@
+.shop-mode {
+  padding: 100px 5vw 40px;
+  min-height: 100vh;
+}
+
+.shop-header {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 40px;
+  width: fit-content;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  color: white;
+}
+
+.filter-btn.active {
+  background: white;
+  color: black;
+}
+
+.sneaker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
